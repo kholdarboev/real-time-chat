@@ -7,7 +7,7 @@ export default function index() {
     const user = false;
     return user ? (
         <Switch>{privateRoutes.map(({ path, Component }) => {
-            <Route path={path} component={Component} exact={true} />
+            <Route key={path} path={path} component={Component} exact={true} />
         })}
             <Redirect to={CHAT_ROUTE} />
         </Switch>
@@ -15,7 +15,7 @@ export default function index() {
         : (
             <Switch>
                 {publicRoutes.map(({ path, Component }) => {
-                    <Route path={path} component={Component} exact={true} />
+                    <Route key={path} path={path} component={Component} exact={true} />
                 })}
                 <Redirect to={LOGIN_ROUTE} />
             </Switch>
